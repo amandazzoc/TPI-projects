@@ -5,7 +5,7 @@
  */
 package View;
 
-import Model.Produto;
+import Model.Prefeitura;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -15,15 +15,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author fatec-dsm2
  */
-public class FrmProduto extends javax.swing.JFrame {
+public class FrmPrefeitura extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmProduto
+     * Creates new form FrmPrefeitura
      */
-    public FrmProduto() {
+    public FrmPrefeitura() {
         initComponents();
     }
-    Produto pro = new Produto();
+    Prefeitura pref = new Prefeitura();
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,29 +40,32 @@ public class FrmProduto extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_nomeProduto = new javax.swing.JTextField();
+        txt_prefeitura = new javax.swing.JTextField();
         txt_codigo = new javax.swing.JTextField();
-        txt_descricao = new javax.swing.JTextField();
+        txt_cidade = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtbl_produto = new javax.swing.JTable();
-        btn_limpar = new javax.swing.JButton();
+        jtbl_prefeitura = new javax.swing.JTable();
         btn_gravar = new javax.swing.JButton();
+        btn_limpar = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Viner Hand ITC", 0, 14)); // NOI18N
-        jLabel1.setText("Cadastro de Produto");
+        jLabel1.setFont(new java.awt.Font("Script MT Bold", 0, 24)); // NOI18N
+        jLabel1.setText("Cadastro de Prefeituras");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Código");
 
-        jLabel3.setText("Nome do Produto");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Prefeitura");
 
-        jLabel4.setText("Descrição");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Cidade");
 
-        txt_nomeProduto.addActionListener(new java.awt.event.ActionListener() {
+        txt_prefeitura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nomeProdutoActionPerformed(evt);
+                txt_prefeituraActionPerformed(evt);
             }
         });
 
@@ -71,7 +75,13 @@ public class FrmProduto extends javax.swing.JFrame {
             }
         });
 
-        jtbl_produto.setModel(new javax.swing.table.DefaultTableModel(
+        txt_cidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_cidadeActionPerformed(evt);
+            }
+        });
+
+        jtbl_prefeitura.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -79,22 +89,22 @@ public class FrmProduto extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código", "Nome do Produto", "Descrição"
+                "Código", "Prefeitura", "Cidade"
             }
         ));
-        jScrollPane1.setViewportView(jtbl_produto);
-
-        btn_limpar.setText("Limpar");
-        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_limparActionPerformed(evt);
-            }
-        });
+        jScrollPane1.setViewportView(jtbl_prefeitura);
 
         btn_gravar.setText("Gravar");
         btn_gravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_gravarActionPerformed(evt);
+            }
+        });
+
+        btn_limpar.setText("Limpar");
+        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limparActionPerformed(evt);
             }
         });
 
@@ -112,56 +122,56 @@ public class FrmProduto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
+                        .addGap(168, 168, 168)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
+                        .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nomeProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                            .addComponent(txt_descricao)
-                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_cidade, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_prefeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(26, 26, 26)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(88, 88, 88)
                         .addComponent(btn_gravar)
-                        .addGap(68, 68, 68)
+                        .addGap(46, 46, 46)
                         .addComponent(btn_limpar)
-                        .addGap(52, 52, 52)
+                        .addGap(58, 58, 58)
                         .addComponent(btn_sair)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_nomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_prefeitura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_descricao, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                    .addComponent(txt_cidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_gravar)
                     .addComponent(btn_limpar)
-                    .addComponent(btn_sair)
-                    .addComponent(btn_gravar))
-                .addGap(253, 253, 253))
+                    .addComponent(btn_sair))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,39 +180,43 @@ public class FrmProduto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_nomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeProdutoActionPerformed
+    private void txt_prefeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_prefeituraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomeProdutoActionPerformed
+    }//GEN-LAST:event_txt_prefeituraActionPerformed
 
     private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_codigoActionPerformed
 
+    private void txt_cidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_cidadeActionPerformed
+
     private void btn_gravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarActionPerformed
         // TODO add your handling code here:
-        pro.setCodigo(Integer.parseInt(txt_codigo.getText()));
-        pro.setDescricao(txt_descricao.getText());
-        pro.setNomeProduto(txt_nomeProduto.getText());
-        pro.cadastrarProduto();
+        pref.setCodigo(Integer.parseInt(txt_codigo.getText()));
+        pref.setNomePrefeitura(txt_prefeitura.getText());
+        pref.setCidade(txt_cidade.getText());
         
         ResultSet tabela;
         tabela = null;
         
-        tabela = pro.listarProduto();
-        DefaultTableModel modelo = (DefaultTableModel) jtbl_produto.getModel();
+        tabela = pref.listarPrefeitura();
+        DefaultTableModel modelo = (DefaultTableModel) jtbl_prefeitura.getModel();
         modelo.setNumRows(0);
+        
         try{
             do{
                 modelo.addRow(new String[]{tabela.getString(2), tabela.getString(3), tabela.getString(4)});
@@ -211,13 +225,14 @@ public class FrmProduto extends javax.swing.JFrame {
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro ao preencher tabela"+ erro) ;
         }
+        
     }//GEN-LAST:event_btn_gravarActionPerformed
 
     private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
         // TODO add your handling code here:
         txt_codigo.setText("");
-        txt_descricao.setText("");
-        txt_nomeProduto.setText("");
+        txt_prefeitura.setText("");
+        txt_cidade.setText("");
     }//GEN-LAST:event_btn_limparActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
@@ -242,20 +257,20 @@ public class FrmProduto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPrefeitura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPrefeitura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPrefeitura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPrefeitura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmProduto().setVisible(true);
+                new FrmPrefeitura().setVisible(true);
             }
         });
     }
@@ -270,9 +285,9 @@ public class FrmProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jtbl_produto;
+    private javax.swing.JTable jtbl_prefeitura;
+    private javax.swing.JTextField txt_cidade;
     private javax.swing.JTextField txt_codigo;
-    private javax.swing.JTextField txt_descricao;
-    private javax.swing.JTextField txt_nomeProduto;
+    private javax.swing.JTextField txt_prefeitura;
     // End of variables declaration//GEN-END:variables
 }

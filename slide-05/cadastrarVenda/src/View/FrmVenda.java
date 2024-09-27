@@ -5,7 +5,7 @@
  */
 package View;
 
-import Model.Produto;
+import Model.Venda;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -15,16 +15,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author fatec-dsm2
  */
-public class FrmProduto extends javax.swing.JFrame {
+public class FrmVenda extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmProduto
+     * Creates new form FrmVenda
      */
-    public FrmProduto() {
+    public FrmVenda() {
         initComponents();
     }
-    Produto pro = new Produto();
     
+    Venda ven = new Venda();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,33 +35,54 @@ public class FrmProduto extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btn_limpar = new javax.swing.JButton();
+        btn_gravar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btn_sair = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_nomeProduto = new javax.swing.JTextField();
+        txt_nomeVendedor = new javax.swing.JTextField();
         txt_codigo = new javax.swing.JTextField();
-        txt_descricao = new javax.swing.JTextField();
+        txt_produto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_produto = new javax.swing.JTable();
-        btn_limpar = new javax.swing.JButton();
-        btn_gravar = new javax.swing.JButton();
-        btn_sair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btn_limpar.setText("Limpar");
+        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limparActionPerformed(evt);
+            }
+        });
+
+        btn_gravar.setText("Gravar");
+        btn_gravar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_gravarActionPerformed(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Viner Hand ITC", 0, 14)); // NOI18N
-        jLabel1.setText("Cadastro de Produto");
+        jLabel1.setText("Cadastro de Venda");
+
+        btn_sair.setText("Sair");
+        btn_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_sairActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Código");
 
-        jLabel3.setText("Nome do Produto");
+        jLabel3.setText("Nome doVendedor");
 
-        jLabel4.setText("Descrição");
+        jLabel4.setText("Nome do Produto");
 
-        txt_nomeProduto.addActionListener(new java.awt.event.ActionListener() {
+        txt_nomeVendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nomeProdutoActionPerformed(evt);
+                txt_nomeVendedorActionPerformed(evt);
             }
         });
 
@@ -79,31 +100,10 @@ public class FrmProduto extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código", "Nome do Produto", "Descrição"
+                "Código", "Nome do Vendedor", "Nome do Produto"
             }
         ));
         jScrollPane1.setViewportView(jtbl_produto);
-
-        btn_limpar.setText("Limpar");
-        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_limparActionPerformed(evt);
-            }
-        });
-
-        btn_gravar.setText("Gravar");
-        btn_gravar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_gravarActionPerformed(evt);
-            }
-        });
-
-        btn_sair.setText("Sair");
-        btn_sair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_sairActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,18 +122,18 @@ public class FrmProduto extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nomeProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                            .addComponent(txt_descricao)
+                            .addComponent(txt_nomeVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                            .addComponent(txt_produto)
                             .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(96, 96, 96)
                         .addComponent(btn_gravar)
-                        .addGap(68, 68, 68)
+                        .addGap(39, 39, 39)
                         .addComponent(btn_limpar)
-                        .addGap(52, 52, 52)
+                        .addGap(50, 50, 50)
                         .addComponent(btn_sair)))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
@@ -149,19 +149,19 @@ public class FrmProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_nomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_nomeVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_descricao, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_gravar)
                     .addComponent(btn_limpar)
-                    .addComponent(btn_sair)
-                    .addComponent(btn_gravar))
-                .addGap(253, 253, 253))
+                    .addComponent(btn_sair))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,37 +170,34 @@ public class FrmProduto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_nomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeProdutoActionPerformed
+    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomeProdutoActionPerformed
-
-    private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_codigoActionPerformed
+        txt_codigo.setText("");
+        txt_produto.setText("");
+        txt_nomeVendedor.setText("");
+    }//GEN-LAST:event_btn_limparActionPerformed
 
     private void btn_gravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarActionPerformed
         // TODO add your handling code here:
-        pro.setCodigo(Integer.parseInt(txt_codigo.getText()));
-        pro.setDescricao(txt_descricao.getText());
-        pro.setNomeProduto(txt_nomeProduto.getText());
-        pro.cadastrarProduto();
-        
+        ven.setCodigo(Integer.parseInt(txt_codigo.getText()));
+        ven.setNomeVendedor(txt_nomeVendedor.getText());
+        ven.setNomeProduto(txt_produto.getText());
+        ven.cadastrarVenda();
+
         ResultSet tabela;
         tabela = null;
-        
-        tabela = pro.listarProduto();
+
+        tabela = ven.listarVenda();
         DefaultTableModel modelo = (DefaultTableModel) jtbl_produto.getModel();
         modelo.setNumRows(0);
         try{
@@ -213,17 +210,18 @@ public class FrmProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_gravarActionPerformed
 
-    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
-        // TODO add your handling code here:
-        txt_codigo.setText("");
-        txt_descricao.setText("");
-        txt_nomeProduto.setText("");
-    }//GEN-LAST:event_btn_limparActionPerformed
-
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btn_sairActionPerformed
+
+    private void txt_nomeVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeVendedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nomeVendedorActionPerformed
+
+    private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_codigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,20 +240,20 @@ public class FrmProduto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmProduto().setVisible(true);
+                new FrmVenda().setVisible(true);
             }
         });
     }
@@ -272,7 +270,7 @@ public class FrmProduto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtbl_produto;
     private javax.swing.JTextField txt_codigo;
-    private javax.swing.JTextField txt_descricao;
-    private javax.swing.JTextField txt_nomeProduto;
+    private javax.swing.JTextField txt_nomeVendedor;
+    private javax.swing.JTextField txt_produto;
     // End of variables declaration//GEN-END:variables
 }
