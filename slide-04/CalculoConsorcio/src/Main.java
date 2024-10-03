@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  */
 /**
  *
- * @author fatec-dsm2
+ * @author amanda
  */
 public class Main {
 
@@ -17,29 +17,27 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Eleitores eleit = new Eleitores();
-        
+        Consorcio cons = new Consorcio();
         int op;
-        do{
-            op = Integer.parseInt(JOptionPane.showInputDialog("Digite\n1-Inserir quantidade de votos\n2-Calcular total de eleitores\n3-Calcular percentual de votos\n4-Mostrar percentual de votos\n0-sair"));
-            
+        do {
+            op = Integer.parseInt(JOptionPane.showInputDialog("Digite\n1-Inserir valores do consorcio\n2-Calcular total pago\n3-Calcular saldo do devedor\n4-Mostrar valores\n0-Sair"));
             switch(op){
                 case 1:
-                    eleit.inserirQtdVotos();
+                    cons.inserirValoresConsorcio();
                     break;
                 case 2:
-                    eleit.calcularTotalEleitores();
+                    cons.calcularTotalPago();
                     break;
                 case 3:
-                    eleit.calcularPercentualVotos();
+                    cons.calcularSaldoDevedor();
                     break;
                 case 4:
-                    eleit.mostrarPercentualVotos();
+                    cons.mostrarValores();
                     break;
                 case 0:
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "Valor indisponível");
+                    JOptionPane.showMessageDialog(null, "Valor Indisponível");
                     break;
             }
         }while(op != 0);

@@ -264,7 +264,7 @@ public class FrmUsuario extends javax.swing.JFrame {
         
         try{
             do{
-                modelo.addRow(new String[]{tabela.getString(1), tabela.getString(2), tabela.getString(3), tabela.getString(4)});
+                modelo.addRow(new String[]{tabela.getString(2), tabela.getString(3), tabela.getString(5), tabela.getString(4)});
             }
             while(tabela.next());
         }catch(SQLException erro){

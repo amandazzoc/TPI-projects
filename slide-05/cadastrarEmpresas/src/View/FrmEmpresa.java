@@ -5,7 +5,7 @@
  */
 package View;
 
-import Model.Venda;
+import Model.Empresa;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -13,18 +13,17 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author fatec-dsm2
+ * @author amanda
  */
-public class FrmVenda extends javax.swing.JFrame {
+public class FrmEmpresa extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmVenda
+     * Creates new form FrmEmpresa
      */
-    public FrmVenda() {
+    public FrmEmpresa() {
         initComponents();
     }
-    
-    Venda ven = new Venda();
+    Empresa emp = new Empresa();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,27 +34,63 @@ public class FrmVenda extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btn_limpar = new javax.swing.JButton();
-        btn_gravar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btn_sair = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_nomeVendedor = new javax.swing.JTextField();
-        txt_codigo = new javax.swing.JTextField();
-        txt_produto = new javax.swing.JTextField();
+        txt_nomeEmpresa = new javax.swing.JTextField();
+        txt_cnpj = new javax.swing.JTextField();
+        txt_endereco = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtbl_produto = new javax.swing.JTable();
+        jtbl_empresa = new javax.swing.JTable();
+        btn_gravar = new javax.swing.JButton();
+        btn_limpar = new javax.swing.JButton();
+        btn_sair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btn_limpar.setText("Limpar");
-        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Script MT Bold", 0, 24)); // NOI18N
+        jLabel1.setText("Cadastro de Empresas");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("CNPJ");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Nome da Empresa");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Endereço");
+
+        txt_nomeEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_limparActionPerformed(evt);
+                txt_nomeEmpresaActionPerformed(evt);
             }
         });
+
+        txt_cnpj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_cnpjActionPerformed(evt);
+            }
+        });
+
+        txt_endereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_enderecoActionPerformed(evt);
+            }
+        });
+
+        jtbl_empresa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "CNPJ", "Nome da Empresa", "Endereço"
+            }
+        ));
+        jScrollPane1.setViewportView(jtbl_empresa);
 
         btn_gravar.setText("Gravar");
         btn_gravar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,8 +99,12 @@ public class FrmVenda extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Viner Hand ITC", 0, 14)); // NOI18N
-        jLabel1.setText("Cadastro de Venda");
+        btn_limpar.setText("Limpar");
+        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limparActionPerformed(evt);
+            }
+        });
 
         btn_sair.setText("Sair");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
@@ -74,37 +113,6 @@ public class FrmVenda extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Código");
-
-        jLabel3.setText("Nome do Vendedor");
-
-        jLabel4.setText("Nome do Produto");
-
-        txt_nomeVendedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nomeVendedorActionPerformed(evt);
-            }
-        });
-
-        txt_codigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_codigoActionPerformed(evt);
-            }
-        });
-
-        jtbl_produto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Código", "Nome do Vendedor", "Nome do Produto"
-            }
-        ));
-        jScrollPane1.setViewportView(jtbl_produto);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -112,56 +120,56 @@ public class FrmVenda extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
+                        .addGap(168, 168, 168)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
+                        .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nomeVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                            .addComponent(txt_produto)
-                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(26, 26, 26)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
+                        .addGap(88, 88, 88)
                         .addComponent(btn_gravar)
-                        .addGap(39, 39, 39)
+                        .addGap(46, 46, 46)
                         .addComponent(btn_limpar)
-                        .addGap(50, 50, 50)
+                        .addGap(58, 58, 58)
                         .addComponent(btn_sair)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_nomeVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_nomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_gravar)
                     .addComponent(btn_limpar)
                     .addComponent(btn_sair))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,26 +188,32 @@ public class FrmVenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
+    private void txt_nomeEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeEmpresaActionPerformed
         // TODO add your handling code here:
-        txt_codigo.setText("");
-        txt_produto.setText("");
-        txt_nomeVendedor.setText("");
-    }//GEN-LAST:event_btn_limparActionPerformed
+    }//GEN-LAST:event_txt_nomeEmpresaActionPerformed
+
+    private void txt_cnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cnpjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_cnpjActionPerformed
+
+    private void txt_enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_enderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_enderecoActionPerformed
 
     private void btn_gravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarActionPerformed
         // TODO add your handling code here:
-        ven.setCodigo(Integer.parseInt(txt_codigo.getText()));
-        ven.setNomeVendedor(txt_nomeVendedor.getText());
-        ven.setNomeProduto(txt_produto.getText());
-        ven.cadastrarVenda();
+        emp.setCNPJ(Integer.parseInt(txt_cnpj.getText()));
+        emp.setNomeEmpresa(txt_nomeEmpresa.getText());
+        emp.setEndereco(txt_endereco.getText());
+        emp.Gravar();
 
         ResultSet tabela;
         tabela = null;
 
-        tabela = ven.listarVenda();
-        DefaultTableModel modelo = (DefaultTableModel) jtbl_produto.getModel();
+        tabela = emp.listarEmpresa();
+        DefaultTableModel modelo = (DefaultTableModel) jtbl_empresa.getModel();
         modelo.setNumRows(0);
+
         try{
             do{
                 modelo.addRow(new String[]{tabela.getString(2), tabela.getString(3), tabela.getString(4)});
@@ -208,20 +222,20 @@ public class FrmVenda extends javax.swing.JFrame {
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro ao preencher tabela"+ erro) ;
         }
+
     }//GEN-LAST:event_btn_gravarActionPerformed
+
+    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
+        // TODO add your handling code here:
+        txt_cnpj.setText("");
+        txt_nomeEmpresa.setText("");
+        txt_endereco.setText("");
+    }//GEN-LAST:event_btn_limparActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btn_sairActionPerformed
-
-    private void txt_nomeVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeVendedorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomeVendedorActionPerformed
-
-    private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_codigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,20 +254,20 @@ public class FrmVenda extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmVenda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmVenda().setVisible(true);
+                new FrmEmpresa().setVisible(true);
             }
         });
     }
@@ -268,9 +282,9 @@ public class FrmVenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jtbl_produto;
-    private javax.swing.JTextField txt_codigo;
-    private javax.swing.JTextField txt_nomeVendedor;
-    private javax.swing.JTextField txt_produto;
+    private javax.swing.JTable jtbl_empresa;
+    private javax.swing.JTextField txt_cnpj;
+    private javax.swing.JTextField txt_endereco;
+    private javax.swing.JTextField txt_nomeEmpresa;
     // End of variables declaration//GEN-END:variables
 }

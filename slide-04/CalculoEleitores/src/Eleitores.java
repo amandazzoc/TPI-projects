@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -86,7 +89,26 @@ public class Eleitores {
         this.percValidos = percValidos;
     }
     
-    public void inserirQtdVotos(int num){
-        
+    public void inserirQtdVotos(){
+        setNumeroVotosBrancos(Integer.parseInt(JOptionPane.showInputDialog("Digite o número de votos brancos: ")));
+        setNumeroVotosNulos(Integer.parseInt(JOptionPane.showInputDialog("Digite o número de votos nulos: ")));
+        setNumeroVotosValidos(Integer.parseInt(JOptionPane.showInputDialog("Digite o número de votos validos: ")));
+    }
+    
+    public void calcularTotalEleitores(){
+        setNumeroTotalEleitores(getNumeroVotosBrancos() + getNumeroVotosNulos() + getNumeroVotosValidos());
+    }
+    
+    public void calcularPercentualVotos(){
+        setPercBrancos((getNumeroVotosBrancos() * 100)/ getNumeroTotalEleitores());
+        setPercNulo((getNumeroVotosNulos() * 100)/ getNumeroTotalEleitores());
+        setPercValidos((getNumeroVotosValidos() * 100)/ getNumeroTotalEleitores());
+    }
+    
+    public void mostrarPercentualVotos() {
+        JOptionPane.showMessageDialog(null, getPercBrancos() + 
+                "% de votos brancos\n" + getPercNulo() + 
+                "% de votos nulos\n" + getPercValidos() + 
+                "% de votos validos");
     }
 }
