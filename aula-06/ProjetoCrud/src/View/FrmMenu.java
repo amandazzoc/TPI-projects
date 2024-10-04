@@ -59,6 +59,11 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu2.setText("Sair");
         jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -83,6 +88,11 @@ public class FrmMenu extends javax.swing.JFrame {
         FrmUsuario fu = new FrmUsuario();
         fu.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenu2ActionPerformed
 
     /**
      * @param args the command line arguments

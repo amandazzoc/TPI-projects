@@ -3,21 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package View;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Usuario;
 
 /**
  *
- * @author amanda
+ * @author fatec-dsm2
  */
-public class FCadUsuario extends javax.swing.JFrame {
+public class fCadUsuario extends javax.swing.JFrame {
 
     /**
-     * Creates new form FCadUsuario
+     * Creates new form fCadUsuario
      */
-    public FCadUsuario() {
+    public fCadUsuario() {
         initComponents();
     }
 
+        Usuario usu = new Usuario();
+
+    public void consultardados() {
+        ResultSet tabela;
+        tabela = null;
+
+        tabela = usu.consultarUsuario();
+        DefaultTableModel modelo = (DefaultTableModel) jtblUsuario.getModel();
+        modelo.setNumRows(0);
+        try {
+            do {
+                modelo.addRow(new String[]{tabela.getString(2), tabela.getString(3), tabela.getString(4), tabela.getString(5)});
+            } while (tabela.next());
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao preencher tabela" + erro);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,8 +50,6 @@ public class FCadUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -46,19 +67,6 @@ public class FCadUsuario extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtblUsuario = new javax.swing.JTable();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +108,11 @@ public class FCadUsuario extends javax.swing.JFrame {
 
         btnCadastrar.setBackground(new java.awt.Color(255, 153, 51));
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         btnAlterar.setBackground(new java.awt.Color(255, 255, 51));
         btnAlterar.setText("Alterar");
@@ -144,6 +157,12 @@ public class FCadUsuario extends javax.swing.JFrame {
                 "Nome", "Email", "Login", "Senha"
             }
         ));
+        jtblUsuario.setCellSelectionEnabled(true);
+        jtblUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtblUsuarioMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jtblUsuario);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -257,19 +276,55 @@ public class FCadUsuario extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
+        usu.setNome(txtNome.getText());
+        usu.setEmail(txtEmail.getText());
+        usu.setSenha(txtSenha.getText());
+        usu.setLogin(txtLogin.getText());
+        usu.alterarUsuario();
+        consultardados();
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
+        usu.setLogin(txtLogin.getText());
+        usu.excluirUsuario();
+        consultardados();
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
+        txtNome.setText("");
+        txtEmail.setText("");
+        txtLogin.setText("");
+        txtSenha.setText("");
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+        usu.setNome(txtNome.getText());
+        usu.setEmail(txtEmail.getText());
+        usu.setSenha(txtSenha.getText());
+        usu.setLogin(txtLogin.getText());
+        usu.cadastrarUsuario();
+        consultardados();
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void jtblUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtblUsuarioMouseClicked
+        // TODO add your handling code here:
+        int linhaSelecionada = jtblUsuario.getSelectedRow();
+       
+      //mostra as informações da linha selecionada na tabela na caixa de texto
+         
+         txtNome.setText(jtblUsuario.getValueAt(linhaSelecionada , 0).toString());
+         txtEmail.setText(jtblUsuario.getValueAt(linhaSelecionada , 1).toString());
+         txtSenha.setText(jtblUsuario.getValueAt(linhaSelecionada , 3).toString());      
+         txtLogin.setText(jtblUsuario.getValueAt(linhaSelecionada , 2).toString());
+    }//GEN-LAST:event_jtblUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -288,20 +343,20 @@ public class FCadUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FCadUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fCadUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FCadUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fCadUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FCadUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fCadUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FCadUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fCadUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FCadUsuario().setVisible(true);
+                new fCadUsuario().setVisible(true);
             }
         });
     }
@@ -318,9 +373,7 @@ public class FCadUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jtblUsuario;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtLogin;
