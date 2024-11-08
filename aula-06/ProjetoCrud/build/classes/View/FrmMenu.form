@@ -39,9 +39,12 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
+<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu2ActionPerformed"/>
           </Events>
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         </Menu>
       </SubComponents>
     </Menu>
@@ -70,21 +73,28 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblLogar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
           </Group>
+=======
+          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblLogar" min="-2" max="-2" attributes="0"/>
           </Group>
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
       </Group>
     </DimensionLayout>
   </Layout>
@@ -96,10 +106,13 @@
         </Property>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="lblLogar">
       <Properties>
         <Property name="text" type="java.lang.String" value="..."/>
       </Properties>
     </Component>
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
   </SubComponents>
 </Form>

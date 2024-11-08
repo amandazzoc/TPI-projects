@@ -28,7 +28,10 @@ public class FrmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+<<<<<<< HEAD
         lblLogar = new javax.swing.JLabel();
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -39,8 +42,11 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icones/manutencao.jpg"))); // NOI18N
 
+<<<<<<< HEAD
         lblLogar.setText("...");
 
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/icones/novo.png"))); // NOI18N
         jMenu1.setText("Arquivo");
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -62,11 +68,14 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenu2.setText("Sair");
         jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+<<<<<<< HEAD
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
             }
         });
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -75,18 +84,25 @@ public class FrmMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblLogar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1))
+=======
+            .addComponent(jLabel1)
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1)
+<<<<<<< HEAD
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblLogar))
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         );
 
         pack();
@@ -99,11 +115,14 @@ public class FrmMenu extends javax.swing.JFrame {
         fu.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+<<<<<<< HEAD
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jMenu2ActionPerformed
 
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
     /**
      * @param args the command line arguments
      */
@@ -145,6 +164,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+<<<<<<< HEAD
     private javax.swing.JLabel lblLogar;
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
     // End of variables declaration//GEN-END:variables
 }

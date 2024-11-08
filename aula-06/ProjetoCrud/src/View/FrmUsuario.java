@@ -25,6 +25,7 @@ public class FrmUsuario extends javax.swing.JFrame {
     }
 
     Usuario usu = new Usuario();
+<<<<<<< HEAD
     
     //código formulário usuário
       public void ObterDados(){
@@ -48,6 +49,8 @@ public class FrmUsuario extends javax.swing.JFrame {
         }
       }
 
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
 
     public void consultardados() {
         ResultSet tabela;
@@ -93,9 +96,12 @@ public class FrmUsuario extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblUsuarios = new javax.swing.JTable();
+<<<<<<< HEAD
         txtPesquisar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnConsultar = new javax.swing.JButton();
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,11 +127,14 @@ public class FrmUsuario extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+<<<<<<< HEAD
         txtTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefoneActionPerformed(evt);
             }
         });
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
 
         jLabel4.setFont(new java.awt.Font("Palatino Linotype", 1, 12)); // NOI18N
         jLabel4.setText("Senha:");
@@ -151,12 +160,22 @@ public class FrmUsuario extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+<<<<<<< HEAD
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTelefone, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(15, Short.MAX_VALUE))
+=======
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,7 +286,10 @@ public class FrmUsuario extends javax.swing.JFrame {
                 "Código", "Nome", "Telefone", "Login", "Senha"
             }
         ));
+<<<<<<< HEAD
         jtblUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         jtblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtblUsuariosMouseClicked(evt);
@@ -275,6 +297,7 @@ public class FrmUsuario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtblUsuarios);
 
+<<<<<<< HEAD
         txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesquisarActionPerformed(evt);
@@ -292,6 +315,8 @@ public class FrmUsuario extends javax.swing.JFrame {
             }
         });
 
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -300,6 +325,7 @@ public class FrmUsuario extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+<<<<<<< HEAD
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -314,10 +340,16 @@ public class FrmUsuario extends javax.swing.JFrame {
                                 .addComponent(btnConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(37, 37, 37)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addContainerGap(41, Short.MAX_VALUE))
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
@@ -329,6 +361,10 @@ public class FrmUsuario extends javax.swing.JFrame {
                             .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+=======
+                .addGap(37, 37, 37)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -400,6 +436,7 @@ public class FrmUsuario extends javax.swing.JFrame {
          txtLogin.setText(jtblUsuarios.getValueAt(linhaSelecionada , 4).toString());  
     }//GEN-LAST:event_jtblUsuariosMouseClicked
 
+<<<<<<< HEAD
     private void txtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPesquisarActionPerformed
@@ -416,6 +453,8 @@ public class FrmUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneActionPerformed
 
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
     /**
      * @param args the command line arguments
      */
@@ -454,7 +493,10 @@ public class FrmUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCadastrar;
+<<<<<<< HEAD
     private javax.swing.JButton btnConsultar;
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSair;
@@ -463,7 +505,10 @@ public class FrmUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel6;
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -471,7 +516,10 @@ public class FrmUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtNome;
+<<<<<<< HEAD
     private javax.swing.JTextField txtPesquisar;
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables

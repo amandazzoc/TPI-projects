@@ -27,6 +27,7 @@
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jPanel2" max="32767" attributes="0"/>
+<<<<<<< HEAD
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
@@ -46,12 +47,19 @@
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
+=======
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -67,6 +75,10 @@
                       <Component id="btnConsultar" min="-2" pref="58" max="-2" attributes="0"/>
                   </Group>
               </Group>
+=======
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -105,6 +117,7 @@
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
+<<<<<<< HEAD
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtLogin" alignment="0" max="32767" attributes="0"/>
@@ -114,6 +127,19 @@
                       </Group>
                   </Group>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
+=======
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtNome" min="-2" pref="542" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtLogin" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtTelefone" alignment="0" pref="139" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
               </Group>
           </Group>
         </DimensionLayout>
@@ -188,9 +214,12 @@
               <Format format="(##)#####-####" subtype="-1" type="5"/>
             </Property>
           </Properties>
+<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelefoneActionPerformed"/>
           </Events>
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -362,9 +391,12 @@
                 </Column>
               </TableColumnModel>
             </Property>
+<<<<<<< HEAD
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor Padr&#xe3;o"/>
             </Property>
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
@@ -375,6 +407,7 @@
         </Component>
       </SubComponents>
     </Container>
+<<<<<<< HEAD
     <Component class="javax.swing.JTextField" name="txtPesquisar">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPesquisarActionPerformed"/>
@@ -399,5 +432,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultarActionPerformed"/>
       </Events>
     </Component>
+=======
+>>>>>>> 737bb3580865bbbd1311bc738dce9e7c4556f091
   </SubComponents>
 </Form>
